@@ -6,7 +6,7 @@
 <title>Elite Pro: من الفكرة إلى الشاشة</title>
 <meta name="description" content="Elite Pro — وكالة إبداعية متكاملة في الرياض: إنتاج مرئي، ذكاء اصطناعي، حملات، فعاليات وهوية. A 360° creative agency in Riyadh.">
 <meta name="theme-color" content="#061B1D">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%23061B1D'/%3E%3Crect x='7' y='6' width='6' height='20' rx='2' fill='%23F8FCFB'/%3E%3Crect x='15' y='6' width='10' height='5' rx='1.5' fill='%23F8FCFB'/%3E%3Crect x='15' y='13.5' width='8' height='5' rx='1.5' fill='%233FE0C5'/%3E%3Crect x='15' y='21' width='10' height='5' rx='1.5' fill='%23F8FCFB'/%3E%3C/svg%3E">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='-40 -40 1060 760'%3E%3Crect x='-40' y='-40' width='1060' height='760' rx='140' fill='%23061B1D'/%3E%3Cpath fill='%23F8FCFB' fill-rule='evenodd' d='M55,500 L655,15 H965 V97 L822,160 L935,165 V243 L745,322 H972 V400 L930,405 L162,668 V633 H62 V573 H133 V537 H55 Z M668,32 H948 V80 H725 V182 H915 V228 H725 V338 H955 V385 H668 Z'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://api.fontshare.com" crossorigin>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -52,12 +52,10 @@ img,video,canvas{display:block}
 
 /* ---------- loader ---------- */
 #loader{position:fixed;inset:0;z-index:100;background:var(--ink);color:var(--bone);overflow:hidden}
-#loader .stack{position:absolute;left:50%;top:44%;width:96px;height:96px;transform:translate(-50%,-50%)}
-#loader .blk{position:absolute;border-radius:10px;background:var(--paper);opacity:0;transform:translateY(-60vh)}
-#loader .blk:nth-child(1){left:34px;top:70px;width:62px;height:26px}
-#loader .blk:nth-child(2){left:0;top:0;width:28px;height:96px}
-#loader .blk:nth-child(3){left:34px;top:35px;width:46px;height:26px;background:var(--acc)}
-#loader .blk:nth-child(4){left:34px;top:0;width:62px;height:26px}
+#loader .stack{position:absolute;left:50%;top:44%;width:clamp(150px,16vw,220px);aspect-ratio:962/1070;transform:translate(-50%,-50%)}
+#loader .stack svg{position:absolute;inset:0;width:100%;height:100%;overflow:visible}
+#loader .stack .ghost{color:rgba(248,252,251,.1)}
+#loader .stack .lit{color:var(--paper);clip-path:inset(0 100% 0 0);filter:drop-shadow(0 0 18px rgba(63,224,197,.35))}
 #loader .lcount{position:absolute;right:calc(var(--g) - .06em);bottom:28px;font-family:var(--sans);font-size:clamp(88px,13vw,190px);font-weight:500;letter-spacing:-.05em;line-height:1;display:flex;overflow:hidden;height:1em;direction:ltr}
 #loader .lcount .dg{display:block;height:1em;overflow:hidden;width:.6em;text-align:center}
 #loader .lcount .dg i{display:block;font-style:normal;transition:transform .32s var(--ease);line-height:1}
@@ -70,6 +68,9 @@ img,video,canvas{display:block}
 .chrome.hid{transform:translateY(-130%)}
 .chrome>*{pointer-events:auto}
 .wm{display:flex;align-items:center;gap:12px;font-family:var(--sans);font-weight:600;font-size:30px;letter-spacing:-.045em;line-height:44px;direction:ltr}
+.wm .logo{display:block;height:58px;width:52px;margin-top:-7px}
+.flogo{display:flex;align-items:flex-end;gap:12px}
+.flogo .logo{height:40px;width:36px}
 .wm sup{font-size:.42em;font-weight:500;letter-spacing:0;position:relative;top:-.55em;margin-left:2px;color:var(--acc-d)}
 .chrome.dark .wm sup{color:var(--acc)}
 .glyph{position:relative;width:22px;height:24px;flex:none}
@@ -340,6 +341,7 @@ main{position:relative;z-index:2}
   :root{--r:14px}
   .chrome{padding-top:20px;height:84px}
   .wm{font-size:24px}
+  .wm .logo{height:46px;width:42px;margin-top:-1px}
   .talk{display:none}
   #menu{top:74px}
   .hero{padding-top:84px;min-height:560px;height:100svh}
@@ -400,16 +402,25 @@ setTimeout(function(){
 </script>
 </head>
 <body class="locked">
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
+<symbol id="ep-logo" viewBox="16 10 962 1070"><g fill="currentColor" fill-rule="evenodd">
+<path d="M55,500 L655,15 H965 V97 L822,160 L935,165 V243 L745,322 H972 V400 L930,405 L162,668 V633 H62 V573 H133 V537 H55 Z M668,32 H948 V80 H725 V182 H915 V228 H725 V338 H955 V385 H668 Z M62,595 H168 V601 H62 Z"/>
+<path d="M20,855 L70,808 H270 V960 H90 V1017 H248 V1075 H70 L20,1025 Z M90,865 H197 V913 L90,920 Z"/>
+<path d="M305,742 H370 V1075 H305 Z M420,735 H487 V782 H420 Z M420,808 H487 V1075 H420 Z"/>
+<path d="M537,765 L603,745 V820 H700 V875 H603 V1017 H700 V1075 H580 L537,1030 Z"/>
+<path d="M737,855 L785,808 H972 V960 H805 V1017 H965 V1075 H785 L737,1025 Z M805,865 H915 V913 L805,920 Z"/>
+</g><g fill="none" stroke="currentColor" stroke-width="17"><path d="M683,795 V678 H762 V752 H683"/><path d="M795,760 V678 H865"/><path d="M888,678 H965 V742 L950,757 H903 L888,742 Z"/></g></symbol>
+</defs></svg>
 
 <div id="loader" aria-hidden="true">
-  <div class="stack"><i class="blk"></i><i class="blk"></i><i class="blk"></i><i class="blk"></i></div>
+  <div class="stack"><svg class="ghost"><use href="#ep-logo"/></svg><svg class="lit" id="llit"><use href="#ep-logo"/></svg></div>
   <div class="lnote mono" data-t="loader"></div>
   <div class="lcount"><span class="dg"><i>0</i></span><span class="dg"><i>0</i></span><span class="dg"><i>0</i></span></div>
   <div class="lwipe"></div>
 </div>
 
 <header class="chrome" id="chrome">
-  <a href="#top" class="wm" aria-label="Elite Pro"><span class="glyph"><i></i><i></i><i></i><i></i></span><span>elite<sup>pro</sup></span></a>
+  <a href="#top" class="wm" aria-label="Elite Pro"><svg class="logo" role="img" aria-label="Elite Pro"><use href="#ep-logo"/></svg></a>
   <div class="ticker mono"><span class="sq"></span><span class="tw" id="tick"><span></span></span></div>
   <div class="cta">
     <a href="#contact" class="talk"><span class="dot"></span><span data-t="cta"></span> <span class="ar" data-t="ctaArrow"></span></a>
@@ -524,7 +535,7 @@ setTimeout(function(){
         <div><h4 data-t="fh3"></h4><a href="https://www.instagram.com/elitepro.sa/" target="_blank" rel="noopener" dir="ltr">Instagram <span class="h">@elitepro.sa</span></a><a href="https://www.instagram.com/elitepro.ai/" target="_blank" rel="noopener" dir="ltr">Elite Pro AI <span class="h">@elitepro.ai</span></a></div>
         <div><h4 data-t="fh4"></h4><form onsubmit="return false"><input type="email" aria-label="Email" data-ph="ph"><button aria-label="Subscribe" data-t="go"></button></form></div>
       </div>
-      <div class="fbase mono"><span class="wm" style="font-size:13px;line-height:1;gap:10px;letter-spacing:.02em"><span class="glyph" style="transform:scale(.7)"><i></i><i></i><i></i><i></i></span><span>© <span id="yr">2026</span> Elite Pro</span></span><span data-t="tag"></span><a href="#top" data-t="back"></a></div>
+      <div class="fbase mono"><span class="flogo"><svg class="logo" aria-hidden="true"><use href="#ep-logo"/></svg><span>© <span id="yr">2026</span> Elite Pro</span></span><span data-t="tag"></span><a href="#top" data-t="back"></a></div>
     </div>
   </footer>
 </main>
@@ -1326,21 +1337,16 @@ function chromeTick(sy) {
 
 /* ======================= loader ======================= */
 function runLoader(onDone) {
-  const blks = $$('#loader .blk'), dg = $$('#loader .dg i'), wipe = $('#loader .lwipe'), Ld = $('#loader');
+  const lit = $('#llit'), dg = $$('#loader .dg i'), wipe = $('#loader .lwipe'), Ld = $('#loader');
   let shown = 0, target = 0, t0 = performance.now(), done = false, lastDig = 0;
   const setDigits = v => { const s = String(v).padStart(3, '0'); dg.forEach((d, i) => { if (d.textContent !== s[i]) { d.style.transition = 'none'; d.style.transform = 'translateY(100%)'; d.textContent = s[i]; d.offsetWidth; d.style.transition = ''; d.style.transform = 'none'; } }); };
-  const dropBlock = i => blks[i].animate([
-    { transform: 'translateY(-60vh)', opacity: 1 }, { transform: 'translateY(0)', opacity: 1, offset: .62 },
-    { transform: 'translateY(-14px) scaleY(1.04)', offset: .78 }, { transform: 'translateY(0) scaleY(.94) scaleX(1.05)', offset: .9 }, { transform: 'none', opacity: 1 }
-  ], { duration: 720, easing: 'cubic-bezier(.5,0,.75,0)', fill: 'forwards' });
-  let dropped = 0;
   window.__loadTarget = v => { target = Math.max(target, v); };
   (function lp() {
     const el = performance.now() - t0;
     const cap = Math.min(target, el / 26);
     if (cap > shown) shown = Math.min(Math.floor(cap), shown + Math.max(1, Math.round((cap - shown) * .12)));
     if (el - lastDig > 110 || shown >= 100) { lastDig = el; setDigits(shown); }
-    while (dropped < 4 && shown >= dropped * 25 + 4) { dropBlock(dropped); dropped++; }
+    lit.style.clipPath = `inset(0 ${100 - shown}% 0 0)`;
     if (shown >= 100 && !done) {
       done = true;
       setTimeout(() => {
