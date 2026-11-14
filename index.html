@@ -364,8 +364,9 @@ main{position:relative;z-index:2}
   [dir=rtl] .big{font-size:clamp(36px,10.2vw,52px);line-height:1.3}
   .stmt2 .big{font-size:clamp(38px,10.8vw,54px)}
   [dir=rtl] .stmt2 .big{font-size:clamp(34px,9.6vw,48px)}
-  .stmt{padding-bottom:14vh}
-  .stmt2{padding:14vh var(--g) 16vh}
+  .stmt{padding-bottom:26vh}
+  .rider{width:clamp(190px,56vw,230px)}
+  .stmt2{padding:14vh var(--g) 34vh}
   .stmt2 .txt{padding-top:36px!important}
   .lead{font-size:17px}
   .whead h2{font-size:44px}
@@ -394,7 +395,7 @@ main{position:relative;z-index:2}
   .win .hint{display:none}
   .stmt{padding-top:16vh}
   .stmt .big .ln:nth-child(2){padding-inline-start:0}
-  .reel{height:220vh}
+  .reel{height:340vh}
   .grid{grid-template-columns:1fr;row-gap:56px}
   .grid .pc:nth-child(n){grid-column:1/-1;margin-top:0}
   .grid .pc:nth-child(n) .im{aspect-ratio:4/3.4}
@@ -403,7 +404,8 @@ main{position:relative;z-index:2}
   .whead .blurb{text-align:start}
   .irow{grid-template-columns:44px 1fr 80px;height:76px}
   .irow .disc{display:none}
-  .fin{height:400vh}
+  .fin{height:680vh}
+  .foot{margin-top:-100vh}
   .fin .end{flex-direction:column;align-items:flex-start;gap:12px;bottom:110px}
   .fin .cap{flex-direction:column;gap:6px}
   .fgrid{grid-template-columns:1fr;gap:28px;margin-top:72px}
@@ -547,7 +549,7 @@ setTimeout(function(){
       <canvas id="finCanvas"></canvas>
       <div class="vig"></div>
       <div class="kin"><div class="blk" id="kin"></div></div>
-      <div class="end" id="fend"><h3 id="fendT"></h3><p class="mono" data-t="fendP"></p></div>
+      <div class="end" id="fend"><h3 id="fendT"></h3></div>
       <div class="cap mono"><span><b>■</b> <span data-t="fig1"></span></span><span id="fcount"></span></div>
       <div class="grain"></div>
       <div class="flood" id="flood"></div>
@@ -605,7 +607,7 @@ const T = {
     pill2: 'Talk to the studio',
     kin: ['Every frame', 'is a decision.', 'Light it with care'], fig1: 'Fig. 01: the E',
     count: (n, N) => `${String(n).padStart(2, '0')} / ${N} pieces in place`,
-    fend: N => `${numWord(N)} pieces.<br>One <em>light.</em>`, fendP: 'Every piece you just watched land was drawn in your browser, live, as you scrolled.',
+    fend: N => `${numWord(N)} pieces.<br>One <em>light.</em>`,
     ask: 'Got an idea? Message us on WhatsApp', lets: "Let's talk!", fh1: 'Studio', addr: 'Riyadh<br>Saudi Arabia', fh2: 'Say hi', fh3: 'Follow', fh4: 'Elite letters, one a season', ph: 'Your email',
     tag: 'Establish to end.', back: 'Back to the top ↑', close: 'Close ×',
     booking: (q, y) => `Now booking Q${q} ’${y} shoots`, time: t => `Studio time ${t} Riyadh`, recent: 'Recently: NOOR premiere', ig: 'Instagram: @elitepro.sa',
@@ -628,7 +630,7 @@ const T = {
     pill2: 'كلّم الاستوديو',
     kin: ['كل لقطة', 'قرار.', 'أضئها بعناية'], fig1: 'شكل ٠١: حرف الضوء',
     count: (n, N) => `${String(n).padStart(2, '0')} / ${N} قطعة في مكانها`,
-    fend: N => `${N === 50 ? 'خمسون' : N} قطعة.<br>ضوءٌ <em>واحد.</em>`, fendP: 'كل قطعة شاهدتها تهبط رُسمت مباشرةً في متصفحك أثناء التمرير.',
+    fend: N => `${N === 50 ? 'خمسون' : N} قطعة.<br>ضوءٌ <em>واحد.</em>`,
     ask: 'عندك فكرة؟ راسلنا على واتساب', lets: 'خلّنا نصوّرها!', fh1: 'الاستوديو', addr: 'الرياض<br>المملكة العربية السعودية', fh2: 'راسلنا', fh3: 'تابعنا', fh4: 'رسائل إيليت، واحدة كل موسم', ph: 'بريدك الإلكتروني',
     tag: 'من البداية إلى النهاية.', back: 'العودة للأعلى ↑', close: 'إغلاق ×',
     booking: (q, y) => `نحجز تصوير الربع ${['', 'الأول', 'الثاني', 'الثالث', 'الرابع'][q]} ’${y}`, time: t => `توقيت الاستوديو ${t} الرياض`, recent: 'مؤخراً: العرض الأول لفيلم نور', ig: 'إنستغرام: @elitepro.sa',
@@ -909,7 +911,7 @@ function initRibbons() {
   const PATHS = {
     a: { el: '#studio', w: 74, flips: [.8, 2], cols: [0x1C6168, 0x061719], rider: true,
       d: [[1640, 90, 0], [1380, 120, 60], [1130, 220, 120], [930, 380, 80], [700, 500, 20], [480, 560, -20], [330, 600, 0], [252, 640, 0]],
-      m: [[460, 40, 0], [395, 80, 30], [360, 150, 40], [372, 215, 0], [330, 262, -20], [250, 280, 0], [195, 300, 0]] },
+      m: [[470, 70, 0], [395, 130, 30], [320, 230, 40], [240, 262, 0], [150, 250, -20], [92, 310, 0], [130, 380, 20], [195, 410, 0]] },
     b: { el: '#lab', w: 54, flips: [.36, .74], cols: [0x061719, 0x1C6168],
       d: [[1620, 30, 0], [1320, 70, 60], [1070, 180, 120], [1010, 400, 120], [1120, 590, 40], [1340, 560, -60], [1390, 330, -60], [1180, 220, 0], [930, 300, 60], [790, 470, 30], [960, 600, 0], [1260, 610, -30], [1640, 560, 0]],
       m: [[440, 60, 0], [330, 40, 30], [270, 120, 60], [300, 330, 30], [340, 520, 0], [200, 600, -30], [60, 520, 0], [-60, 480, 0]] },
@@ -972,7 +974,7 @@ function initRibbons() {
     for (const r of rib.list) {
       const top = r.sec.offsetTop;
       const phone = VW < 760;
-      const start = top - VH * (phone ? .8 : .85), len = VH * (phone ? .8 : .95);
+      const start = top - VH * (phone ? .75 : .85), len = phone ? 420 * VW / 390 + VH * .45 : VH * .95;
       const p = clamp((sy - start) / len);
       r.p = lerp(r.p, p, .2);
       if (Math.abs(r.p - p) < .0005) r.p = p;
@@ -1257,7 +1259,7 @@ function initReel() {
     const p = clamp((sy - top + VH * .35) / (h + VH * .35));
     const g = parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--g')) || 72;
     const phone = VW < 760, mir = RTL();
-    const e = eo(smooth(.0, .62, p));
+    const gEnd = VW < 760 ? .86 : .62, e = eo(smooth(.0, gEnd, p));
     const w0 = phone ? VW * .42 : Math.min(VW * .24, 360), h0 = w0 * (phone ? 1.25 : .62);
     const w1 = VW - g * 2, h1 = phone ? VH * .72 : VH - 120 - 72;
     const cw = lerp(w0, w1, e), ch = lerp(h0, h1, e);
@@ -1275,7 +1277,7 @@ function initReel() {
     const rxA = M(phone ? VW / 2 - rw / 2 : x0c + cw + gap, rw), ryA = phone ? ch / 2 + fs * .5 : 0;
     const lxB = M(x0c + pad, lw), lyB = -ch / 2 + fs * .5 + pad * .4;
     const rxB = M(x0c + cw - pad - rw, rw), ryB = ch / 2 - fs * .5 - pad * .5;
-    const k = eo(smooth(.08, .62, p));
+    const k = eo(smooth(.08, gEnd, p));
     const sc = phone ? 1 : lerp(.78, 1, k);
     for (const el of L) { el.style.transformOrigin = mir ? '0 50%' : '100% 50%'; el.style.transform = `translate(${lerp(lxA, lxB, k)}px, calc(-52% + ${cy + lerp(lyA, lyB, k)}px)) scale(${sc})`; }
     for (const el of R) { el.style.transformOrigin = mir ? '100% 50%' : '0 50%'; el.style.transform = `translate(${lerp(rxA, rxB, k)}px, calc(-52% + ${cy + lerp(ryA, ryB, k)}px)) scale(${sc})`; }
@@ -1343,7 +1345,7 @@ function initChrome() {
     requestAnimationFrame(() => requestAnimationFrame(() => { old.style.transform = 'translateY(-110%)'; nw.style.transform = 'none'; }));
     setTimeout(() => old.remove(), 900);
   }, 3200);
-  const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } }), { rootMargin: '0px 0px -12% 0px' });
+  const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } }), { rootMargin: PHONE ? '0px 0px -2% 0px' : '0px 0px -12% 0px' });
   work.observe = el => io.observe(el);
   $$('.rv,.fade,.pc').forEach(el => io.observe(el));
 }
